@@ -1,0 +1,22 @@
+%h1
+  =t('party.index_heading')
+
+%table.table.table-hover.table-condensed
+  %thead
+    %tr
+      %th= "ID"
+      %th
+        Actions
+
+  - @parties.each do |party|
+    %tbody
+
+      %tr{:id => "party_#{party.id}"}
+        %td= link_to party.id
+        %td
+          = link_to t('actions.edit'), edit_party_path(party), :class => 'btn btn-mini'
+          = link_to t('actions.destroy'), party, :method => :delete, :data => { :confirm => t('actions.are_you_sure') }, :class => 'btn btn-mini btn-danger'
+
+%br
+
+= link_to t('actions.new_record', record: t('party.model_name')), new_party_path, :class => 'btn btn-small btn-success'

@@ -1,0 +1,27 @@
+<h1>Listing contact_mechanism_types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contact_mechanism_types.each do |contact_mechanism_type| %>
+      <tr>
+        <td><%= contact_mechanism_type.name %></td>
+        <td><%= link_to 'Show', contact_mechanism_type %></td>
+        <td><%= link_to 'Edit', edit_contact_mechanism_type_path(contact_mechanism_type) %></td>
+        <td><%= link_to 'Destroy', contact_mechanism_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contact mechanism type', new_contact_mechanism_type_path %>

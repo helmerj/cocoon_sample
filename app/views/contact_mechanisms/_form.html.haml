@@ -1,0 +1,23 @@
+= simple_form_for @contact_mechanism, :html => { :class => 'form-horizontal' } do |f|
+  = f.error_notification
+
+  %legend
+    = controller.action_name.capitalize
+    =t('contact_mechanism.model_name')
+
+
+  .form-inputs
+    = f.association :contact_mechanism_type, as: :radio_buttons, label: t('contact_mechanism.contact_mechanism_type_id'), prompt: t('forms.please_select')
+
+    = f.simple_fields_for :electronic_addresses do |electronic_address|
+      = render 'electronic_address_fields', :f => electronic_address
+    .links
+      = link_to_add_association t('electronic_address.electronic_address_string'), f, :electronic_addresses
+
+
+
+
+
+  .form-actions
+    = f.submit t('actions.save'), class: 'btn btn-primary btn-mini'
+    = link_to t('actions.back'),contact_mechanisms_path, class: 'btn btn-mini'

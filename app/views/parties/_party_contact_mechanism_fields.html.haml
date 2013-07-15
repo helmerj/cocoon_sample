@@ -1,0 +1,15 @@
+.nested-fields
+  .input-fields
+    
+    = f.input :from_date
+    = f.input :thru_date
+    = f.input :extension
+    = f.input :party_contact_mechanism_seq_id
+    = f.association :party_role_type
+    #contact_mechanism
+      #contact_mechanism_from_list
+        = f.association :contact_mechanism,
+          label_method: lambda { |c| "#{c.id}" },
+          :collection => ContactMechanism.all, :prompt => t('forms.please_select')
+      = link_to_add_association 'add a new Email', f, :contact_mechanism, 
+        {:partial => 'contact_mechanism_electronic_address_fields'}

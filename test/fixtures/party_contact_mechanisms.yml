@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  party_role_type_id: 1
+  party_id: 1
+  contact_mechanism_id: 1
+  party_contact_mechanism_seq_id: 1
+  from_date: 2013-07-15
+  thru_date: 2013-07-15
+  non_solicitation_ind: false
+  extension: MyString
+  comment: MyText
+
+two:
+  party_role_type_id: 1
+  party_id: 1
+  contact_mechanism_id: 1
+  party_contact_mechanism_seq_id: 1
+  from_date: 2013-07-15
+  thru_date: 2013-07-15
+  non_solicitation_ind: false
+  extension: MyString
+  comment: MyText

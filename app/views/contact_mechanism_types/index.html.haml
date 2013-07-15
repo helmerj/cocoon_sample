@@ -1,0 +1,28 @@
+%h2
+  =t('contact_mechanism_type.index_heading')
+
+%table.table.table-hover.table-condensed
+  %thead
+    %tr
+      %th
+        =t('contact_mechanism_type.name')
+      %th
+        =t('contact_mechanism_type.description')
+      %th.actions
+        Actions
+
+  %tbody
+  -@contact_mechanism_types.each do |contact_mechanism_type|
+    %tr{:id => "contact_mechanism_type_#{contact_mechanism_type.id}"}
+
+      %td= link_to contact_mechanism_type.name, contact_mechanism_type
+      %td= contact_mechanism_type.description
+
+      %td.actions
+        = link_to t('actions.edit'), edit_contact_mechanism_type_path(contact_mechanism_type), class: "btn btn-mini"
+        = link_to t('actions.destroy'), contact_mechanism_type, method: :delete, data: { confirm: t('actions.are_you_sure') }, class: "btn btn-mini btn-danger"
+
+
+%br
+
+= link_to t('actions.new_record', record: t('contact_mechanism_type.model_name')), new_contact_mechanism_type_path, class: "btn btn-small btn-success"

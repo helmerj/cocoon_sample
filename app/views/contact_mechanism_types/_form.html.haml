@@ -1,0 +1,15 @@
+= simple_form_for @contact_mechanism_type, :html => { :class => 'form-horizontal' } do |f|
+  = f.error_notification
+
+  %legend
+    = controller.action_name.capitalize
+    =t('contact_mechanism_type.model_name')
+
+
+  .form-inputs
+    = f.input :name, label: t('contact_mechanism_type.name')
+    = f.input :description, label: t('contact_mechanism_type.description')
+
+  .form-actions
+    = f.submit t('actions.save'), class: 'btn btn-primary btn-mini'
+    = link_to t('actions.back'),contact_mechanism_types_path, class: 'btn btn-mini'

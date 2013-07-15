@@ -1,0 +1,21 @@
+%h2
+  =t('forms.details')
+  =" - "
+  = @party_role_type.name
+%div#party_role_type
+  %dl.dl-horizontal
+    %dt
+      =t('party_role_type.name')
+    %dd
+      = @party_role_type.name
+    %dt
+      =t('party_role_type.party_role_class')
+    %dd
+      = @party_role_type.party_role_class
+    %dt
+      =t('party_role_type.description')
+    %dd
+      = @party_role_type.description
+  
+  = link_to t('actions.edit'), edit_party_role_type_path(@party_role_type), class: 'btn btn-primary btn-mini'
+  = link_to t('actions.back'), party_role_types_path, class: 'btn btn-mini'

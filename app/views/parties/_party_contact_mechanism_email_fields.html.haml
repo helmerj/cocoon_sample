@@ -1,0 +1,10 @@
+.nested-fields
+  .js-cocoon.party_contact_mechanism
+    
+    = f.input :from_date, label: t('party_contact_mechanism.from_date')
+    = f.input :thru_date, label: t('party_contact_mechanism.thru_date')
+
+    = f.simple_fields_for :contact_mechanisms do |cm|
+
+      = cm.simple_fields_for :electronic_addresses do |electronic_address|
+        = render 'electronic_address_fields', :f => electronic_address

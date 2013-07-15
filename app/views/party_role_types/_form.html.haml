@@ -1,0 +1,15 @@
+= simple_form_for @party_role_type, :html => { :class => 'form-horizontal' } do |f|
+  = f.error_notification
+
+  %legend
+    = controller.action_name.capitalize
+    Party Role Class
+
+  .form-inputs
+    = f.input :name
+    = f.input :description
+    = f.input :party_role_class, collection: %w{ person organization }, label: t('party_role_type.party_role_class')
+
+  .form-actions
+    = f.submit t('actions.save'), class: 'btn btn-primary btn-mini'
+    = link_to t('actions.back'),party_role_types_path, class: 'btn btn-mini'

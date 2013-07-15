@@ -1,0 +1,25 @@
+%h2
+  =t('electronic_address.index_heading')
+
+%table.table.table-hover.table-condensed
+  %thead
+    %tr
+      %th
+        =t('electronic_address.electronic_address_string')
+      %th.actions
+        Actions
+
+  %tbody
+  -@electronic_addresses.each do |electronic_address|
+    %tr{:id => "electronic_address_#{electronic_address.id}"}
+
+      %td= link_to electronic_address.electronic_address_string, electronic_address
+
+      %td.actions
+        = link_to t('actions.edit'), edit_electronic_address_path(electronic_address), class: "btn btn-mini"
+        = link_to t('actions.destroy'), electronic_address, method: :delete, data: { confirm: t('actions.are_you_sure') }, class: "btn btn-mini btn-danger"
+
+
+%br
+
+= link_to t('actions.new_record', record: t('electronic_address.model_name')), new_electronic_address_path, class: "btn btn-small btn-success"

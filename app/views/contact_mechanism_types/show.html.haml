@@ -1,0 +1,17 @@
+%h2
+  =t('forms.details')
+  =" - "
+  = @contact_mechanism_type.name
+%div#contact_mechanism_type
+  %dl.dl-horizontal
+    %dt
+      =t('contact_mechanism_type.name')
+    %dd
+      = @contact_mechanism_type.name
+    %dt
+      =t('contact_mechanism_type.description')
+    %dd
+      = @contact_mechanism_type.description
+  
+  = link_to t('actions.edit'), edit_contact_mechanism_type_path(@contact_mechanism_type), class: 'btn btn-primary btn-mini'
+  = link_to t('actions.back'), contact_mechanism_types_path, class: 'btn btn-mini'

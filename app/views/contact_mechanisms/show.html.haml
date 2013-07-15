@@ -1,0 +1,17 @@
+%h2
+  =t('forms.details')
+  =" - "
+  = @contact_mechanism.contact_mechanism_type_id
+%div#contact_mechanism
+  %dl.dl-horizontal
+    %dt
+      =t('contact_mechanism.contact_mechanism_type_id')
+    %dd
+      = @contact_mechanism.contact_mechanism_type.name
+    - if @contact_mechanism.electronic_addresses.length > 0
+      %dt
+        = t('electronic_address.electronic_address_string')
+      %dd
+        = @contact_mechanism.electronic_addresses.first.electronic_address_string
+  = link_to t('actions.edit'), edit_contact_mechanism_path(@contact_mechanism), class: 'btn btn-primary btn-mini'
+  = link_to t('actions.back'), contact_mechanisms_path, class: 'btn btn-mini'

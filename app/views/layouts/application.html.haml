@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title CocoonSampleApp
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    .container
+      .row
+        .span9
+          - if flash.present?
+            - flash.each do |name, msg|
+              %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
+                %a.close{"data-dismiss" => "alert"} ×
+                = msg
+      .row
+        .span9
+          = yield
+        .span3
+          %h3 Sidebar Header
+          %p
+            =link_to "Parties", parties_path
+            %br
+            =link_to "Contact Mechanisms", contact_mechanisms_path
+            %br
+            =link_to "Electronic Addresses", electronic_addresses_path

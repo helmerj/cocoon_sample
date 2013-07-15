@@ -1,0 +1,31 @@
+%h2
+  =t('party_role_type.index_heading')
+
+= will_paginate @party_role_types
+
+%table.table.table-hover.table-condensed
+  %thead
+    %tr
+      %th
+        =t('party_role_type.name')
+      %th
+        =t('party_role_type.description')
+      %th
+        =t('party_role_type.party_role_class')
+      %th
+        Actions
+
+  %tbody
+  -@party_role_types.each do |party_role_type|
+    %tr{:id => "party_role_type_#{party_role_type.id}"}
+      %td= link_to party_role_type.name, party_role_type
+      %td= party_role_type.description
+      %td= party_role_type.party_role_class
+      %td
+        = link_to t('actions.edit'), edit_party_role_type_path(party_role_type), class: "btn btn-mini"
+        = link_to t('actions.destroy'), party_role_type, method: :delete, data: { confirm: t('actions.are_you_sure') }, class: "btn btn-mini btn-danger"
+
+
+%br
+
+= link_to t('actions.new_record', record: t('party_role_type.model_name')), new_party_role_type_path, class: "btn btn-small btn-success"

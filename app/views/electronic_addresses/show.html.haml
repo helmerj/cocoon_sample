@@ -1,0 +1,13 @@
+%h2
+  =t('forms.details')
+  =" - "
+  = @electronic_address.electronic_address_string
+%div#electronic_address
+  %dl.dl-horizontal
+    %dt
+      =t('electronic_address.electronic_address_string')
+    %dd
+      = @electronic_address.electronic_address_string
+  
+  = link_to t('actions.edit'), edit_electronic_address_path(@electronic_address), class: 'btn btn-primary btn-mini'
+  = link_to t('actions.back'), electronic_addresses_path, class: 'btn btn-mini'

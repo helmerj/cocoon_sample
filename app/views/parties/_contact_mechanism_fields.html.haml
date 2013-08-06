@@ -1,5 +1,6 @@
 .nested-fields
-  = f.association :contact_mechanism_type, label: t('contact_mechanism_type.model_name')
+  = f.input :contact_mechanism_type_id, label: t('contact_mechanism_type.model_name')
+  
   =f.simple_fields_for :electronic_addresses do |email|
     = email.input :electronic_address_string, label: "Email Address"
   = link_to_remove_association 'remove contact mechanism', f

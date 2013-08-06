@@ -79,10 +79,10 @@ class PartiesController < ApplicationController
                                                       :extension,
                                                       :comment,
                                                       :party_role_type_id,
-                                                      contact_mechanisms_attributes: [:id, :_destroy, :contact_mechanism_type_id,
-                                                      electronic_addresses_attributes: [ :id, :_destroy, :electronic_address_string, :contact_mechanism_id],
-                                                      telecommunications_numbers_attributes: [ :id, :_destroy, :country_code, :area_code, :contact_number, :contact_mechanism_id],
-                                                      postal_addresses_attributes: [ :id, :_destroy, :address1, :address2, :address3, :contact_mechanism_id ]
+                                                      contact_mechanism_attributes: [:id, :_destroy, :contact_mechanism_type_id,
+                                                      electronic_address_attributes: [ :id, :_destroy, :electronic_address_string, :contact_mechanism_id],
+                                                      telecommunications_number_attributes: [ :id, :_destroy, :country_code, :area_code, :contact_number, :contact_mechanism_id],
+                                                      postal_address_attributes: [ :id, :_destroy, :address1, :address2, :address3, :contact_mechanism_id ]
                                                       ]
                                                       ])
     end

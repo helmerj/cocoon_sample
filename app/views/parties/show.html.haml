@@ -11,13 +11,17 @@
       =@party.id
     -if @party.party_contact_mechanisms.length > 0
       -@party.party_contact_mechanisms.each do |pcm|
-        -if pcm.contact_mechanism.electronic_addresses.length > 0
+        %dt
+          = 'From Date'
+        %dd
+          = pcm.from_date
+        -if pcm.contact_mechanism.present? && pcm.contact_mechanism.electronic_address.present?
           %dt
-            = "Email Addresses"
+            = "Email Address"
           %dd  
-            - pcm.contact_mechanism.electronic_addresses.each do |email|
-              = email.electronic_address_string
+            = pcm.contact_mechanism.electronic_address.electronic_address_string
 
 
   = link_to t('actions.edit'), edit_party_path(@party), class: 'btn btn-small btn-primary'
   = link_to t('actions.back'), parties_path, class: 'btn btn-small'
+

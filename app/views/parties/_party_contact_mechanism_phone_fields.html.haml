@@ -1,0 +1,11 @@
+.nested-fields
+  .js-cocoon.party_contact_mechanism
+    = f.input :from_date, as: :hidden, input_html: {value: "#{Time.now.to_date}" }
+    .js-datepicker
+      = f.input :thru_date, label: t('party_contact_mechanism.thru_date'), as: :string
+    = f.association :party_role_type, collection: PartyRoleType.where.not(parent_id: nil)
+    = f.input :non_solicitation_ind, label: t('party_contact_mechanism.non_solicitation_ind'), as: :boolean, :boolean_style => :inline, :wrapper_html => { :style => 'display: inline' }
+    = f.simple_fields_for :contact_mechanism do |cmt|
+      = render 'contact_mechanism_phone_fields', :f => cmt
+    = f.input :extension
+    = link_to_remove_association content_tag(:i, nil, class: 'icon-remove'), f, class: 'btn btn-small btn-danger'

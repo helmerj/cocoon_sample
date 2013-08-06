@@ -1,0 +1,4 @@
+.nested-fields
+  = f.input :contact_mechanism_type_id, as: :hidden, input_html: { value: ContactMechanismType.where(name: "phone").first.id }
+  = f.simple_fields_for :telecommunications_number do |phone_number|
+    = render 'telecommunications_number_fields', f: phone_number

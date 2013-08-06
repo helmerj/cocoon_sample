@@ -1,9 +1,9 @@
 = simple_form_for @party, :html => { :class => 'form-horizontal' } do |f|
 
-  -#= f.error_notification
-  -if @party.errors.present?
-    = @party.errors.full_messages.each do |msg|
-      %p= msg
+  = f.error_notification
+  -#-if @party.errors.present?
+  -#  = @party.errors.full_messages.each do |msg|
+  -#    %p= msg
 
   %legend
     = controller.action_name.capitalize
@@ -11,27 +11,21 @@
   .btn-toolbar
     .btn-group
       .btn
-        .links.party_contact_mechanism
-          = link_to_add_association "PCM", f, :party_contact_mechanisms,
-          {:'data-association-insertion-node' => '#party_contact_mechanisms',
-          :'data-association-insertion-method' => :append, force_non_association_create: true}
-      .btn
         .links.party_contact_mechanism_email
           = link_to_add_association "Email", f, :party_contact_mechanisms,
           {:'data-association-insertion-node' => '#party_contact_mechanisms_email',
           :'data-association-insertion-method' => :append, force_non_association_create: true,
           partial: 'party_contact_mechanism_email_fields'}
 
-    #party_contact_mechanisms
-      .js-cocoon.party_contact_mechanisms
-        = f.simple_fields_for :party_contact_mechanisms do |pcm|
-          = render 'party_contact_mechanism_fields', :f => pcm
-    
     #party_contact_mechanisms_email
       .js-cocoon.party_contact_mechanisms
-        = f.simple_fields_for :party_contact_mechanisms do |pcm|
-          = render 'party_contact_mechanism_email_fields', :f => pcm    
+        = f.simple_fields_for :party_contact_mechanisms do |pcm_email|
+          = render 'party_contact_mechanism_email_fields', :f => pcm_email
 
+    #party_contact_mechanisms_email
+      .js-cocoon.party_contact_mechanisms
+        = f.simple_fields_for :party_contact_mechanisms do |pcm_phone|
+          = render 'party_contact_mechanism_phone_fields', :f => pcm_phone
   .form-actions
     = f.submit t('actions.save'), class: 'btn btn-primary btn-small'
     = link_to t('actions.back'),parties_path, class: 'btn btn-small'

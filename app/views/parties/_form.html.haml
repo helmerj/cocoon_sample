@@ -16,16 +16,24 @@
           {:'data-association-insertion-node' => '#party_contact_mechanisms_email',
           :'data-association-insertion-method' => :append, force_non_association_create: true,
           partial: 'party_contact_mechanism_email_fields'}
+      .btn
+        .links.party_contact_mechanism_phone
+          = link_to_add_association "Phone", f, :party_contact_mechanisms,
+          {:'data-association-insertion-node' => '#party_contact_mechanisms_phone',
+          :'data-association-insertion-method' => :append, force_non_association_create: true,
+          partial: 'party_contact_mechanism_phone_fields'}
 
     #party_contact_mechanisms_email
       .js-cocoon.party_contact_mechanisms
         = f.simple_fields_for :party_contact_mechanisms do |pcm_email|
           = render 'party_contact_mechanism_email_fields', :f => pcm_email
 
-    #party_contact_mechanisms_email
+    #party_contact_mechanisms_phone
       .js-cocoon.party_contact_mechanisms
         = f.simple_fields_for :party_contact_mechanisms do |pcm_phone|
           = render 'party_contact_mechanism_phone_fields', :f => pcm_phone
+
+
   .form-actions
     = f.submit t('actions.save'), class: 'btn btn-primary btn-small'
     = link_to t('actions.back'),parties_path, class: 'btn btn-small'
